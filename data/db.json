@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "title": "My First Blog",
+            "body": "Blog Text Stuff :D",
+            "author": "Moony",
+            "id": 1
+        },
+        {
+            "title": "Woo",
+            "body": "Blog Text Stuff :D",
+            "author": "Sunny",
+            "id": 2
+        }
+    ]
+}
