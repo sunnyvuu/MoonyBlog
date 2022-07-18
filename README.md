@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Things I Learned in React
+
+- useState
+- useEffect
+- fetching from external API and parsing JSON data
+- creating and styling components
+- passing and using props
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
