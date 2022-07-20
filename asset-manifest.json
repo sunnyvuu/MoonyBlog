@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MoonyBlog/static/css/main.e7df0f4b.css",
+    "main.js": "/MoonyBlog/static/js/main.2d46cc3d.js",
+    "static/js/787.28cb0dcd.chunk.js": "/MoonyBlog/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/MoonyBlog/index.html",
+    "main.e7df0f4b.css.map": "/MoonyBlog/static/css/main.e7df0f4b.css.map",
+    "main.2d46cc3d.js.map": "/MoonyBlog/static/js/main.2d46cc3d.js.map",
+    "787.28cb0dcd.chunk.js.map": "/MoonyBlog/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7df0f4b.css",
+    "static/js/main.2d46cc3d.js"
+  ]
+}
