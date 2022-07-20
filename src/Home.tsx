@@ -21,37 +21,25 @@ const Home = () => {
   }
 
   useEffect(() => {
-    axios.get("https://catfact.ninja/fact").then((result: any) => {
-      console.log(result.data.fact);
-      setFacts(result.data.fact);
-    });
-  }, []);
-
-  useEffect(() => {
+    // fetching cat fact
+    axios
+      .get("https://catfact.ninja/fact")
+      .then((response: any) => {
+        setFacts(response.data.fact);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // fetching blog data from json file (mock rest api)
     axios
       .get("http://localhost:8000/blogs")
       .then((response) => {
-        console.log(response.data);
         setBlogs(response.data);
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
-
-    // const fetchBlogs = async () => {
-    //   try {
-    //     let response = await fetch("http://localhost:8000/blogs", {
-    //       method: "GET",
-    //     }).then((response) => {
-    //       const data = response.json;
-    //       console.log(data);
-    //     });
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // };
-    // fetchBlogs();
   }, []);
 
   return (
