@@ -6,22 +6,7 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [facts, setFacts] = useState([]);
   const [count, setCount] = useState(0);
-  const [isPending, setIsPending] = useState(true);
-
-  // function isLoading(isPending) {
-  //   let title: string;
-
-  //   if (isPending == true) {
-  //     {
-  //       title = "Is Loading ...";
-  //     }
-  //   } else {
-  //     {
-  //       title = "All Blogs";
-  //     }
-  //   }
-  //   return title;
-  // }
+  const [isLoading, setIsLoading] = useState(true);
 
   function increment() {
     setCount((prevCount) => {
@@ -43,16 +28,30 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/blogs")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setBlogs(data);
-          setIsPending(false);
-        });
-    }, 3000);
+    axios
+      .get("http://localhost:8000/blogs")
+      .then((response) => {
+        console.log(response.data);
+        setBlogs(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // const fetchBlogs = async () => {
+    //   try {
+    //     let response = await fetch("http://localhost:8000/blogs", {
+    //       method: "GET",
+    //     }).then((response) => {
+    //       const data = response.json;
+    //       console.log(data);
+    //     });
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // };
+    // fetchBlogs();
   }, []);
 
   return (
@@ -73,7 +72,7 @@ const Home = () => {
       </div>
 
       <div className="title">
-        {isPending ? <h2>Loading ...</h2> : <h2> All Blogs!</h2>}
+        {isLoading ? <h2>Loading ...</h2> : <h2> All Blogs!</h2>}
       </div>
       {blogs && <BlogList blogs={blogs} />}
     </div>
