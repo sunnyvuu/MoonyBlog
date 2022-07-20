@@ -1,10 +1,12 @@
-# Things I Learned in React
+# Things I Learned
 
 - useState
 - useEffect
-- fetching from external API and parsing JSON data
+- fetching from external API and parsing JSON response
+- error handling
 - creating and styling components
 - passing and using props
+- using Git/Github
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
