@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import axios from "axios";
+import { setConstantValue } from "typescript";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [facts, setFacts] = useState([]);
   const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function increment() {
     setCount((prevCount) => {
@@ -35,17 +37,19 @@ const Home = () => {
       .get("http://localhost:8000/blogs")
       .then((response) => {
         setBlogs(response.data);
+        console.log(response.data);
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage("Error: Blogs are currently hosted locally.");
       });
   }, []);
 
   return (
     <div className="home">
       <div className="catFacts">
-        <h2>Cat Facts </h2>
+        <h2>Cat Fact</h2>
         <p>{facts}</p>
       </div>
 
@@ -60,9 +64,10 @@ const Home = () => {
       </div>
 
       <div className="title">
-        {isLoading ? <h2>Loading ...</h2> : <h2> All Blogs!</h2>}
+        {isLoading ? <h2>Loading ...</h2> : <h2>All Blogs!</h2>}
       </div>
       {blogs && <BlogList blogs={blogs} />}
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };
