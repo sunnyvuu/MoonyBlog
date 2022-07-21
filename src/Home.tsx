@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
-import axios from "axios";
 import { setConstantValue } from "typescript";
+import axios from "axios";
+import useFetch from "./useFetch";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [facts, setFacts] = useState([]);
   const [count, setCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [facts, setFacts] = useState([]);
+  const {
+    data: blogs,
+    isLoading,
+    errorMessage,
+  } = useFetch("http://localhost:8000/blogs");
 
   function increment() {
     setCount((prevCount) => {
@@ -31,18 +34,6 @@ const Home = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
-    // fetching blog data from json file (mock rest api)
-    axios
-      .get("http://localhost:8000/blogs")
-      .then((response) => {
-        setBlogs(response.data);
-        console.log(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMessage("Error: Blogs are currently hosted locally.");
       });
   }, []);
 
