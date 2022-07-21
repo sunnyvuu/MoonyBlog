@@ -1,4 +1,5 @@
 ![Screenshot (7)](https://user-images.githubusercontent.com/96709502/179872353-a95cfdb7-f4ee-4293-8555-9f52f871c7a3.png)
+
 # Things I Learned
 
 - useState
@@ -8,6 +9,7 @@
 - creating and styling components
 - passing and using props
 - using Git/Github
+- creating custom hooks
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
