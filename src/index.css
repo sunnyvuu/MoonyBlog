@@ -70,3 +70,7 @@
 .catFacts {
   padding-bottom: 1em;
 }
+
+.blog-preview a{
+  text-decoration: none;
+}
